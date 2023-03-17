@@ -1,0 +1,238 @@
+@font-face{
+  font-family:"IBMVGA";
+  src:url("./ibm_vga8.ttf");
+}
+
+*{ cursor: none; }
+
+body{
+  background-color:#0C0F0C;
+  text-shadow: 0 0 .5rem #EF6C00;
+  color:#EF6C00;
+  font-family:"IBMVGA";
+}
+
+::selection{
+  background-color:#EF6C00;
+  text-shadow: none;
+  box-shadow: 0 0.2rem 1rem #EF6C00;
+  color:#0C0F0C;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.boot{
+  white-space: pre;
+}
+
+.boot::before{
+  content:"";
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+
+.boot.start::before{
+  animation-name: boot;
+}
+
+.startup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.overlay{
+  margin:0;
+  width:100%;
+  height:100%;
+  background-color:white;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  z-index:3;
+}
+
+.content::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.content::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.content{
+  position: absolute;
+  top:0;
+  margin:0;
+  margin-left:5px;
+  width:calc(100% - 5px);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:start;
+  z-index:1;
+}
+
+.content p{
+  margin:0;
+  word-break: break-all;
+  z-index:1;
+}
+
+.content p.i{
+  color:#0C0F0C;
+  background-color:#EF6C00;
+  width:100%;
+}
+
+.content p.i::before{
+  content:"\00a0";
+}
+
+.content p:last-child::after{
+  content:"█";
+}
+
+@keyframes startupOverlay {
+  50%   {background-color: white;}
+  100% {background-color: transparent;}
+}
+
+@keyframes startup {
+  0%   {width:0;height:0;}
+  1%   {width:1px;height:0;}
+  50%  {height:100%;width:1px;}
+  100% {width:100%;height:100%;}
+}
+
+@keyframes flicker {
+  0% {
+  opacity: 0.27861;
+  }
+  5% {
+  opacity: 0.34769;
+  }
+  10% {
+  opacity: 0.23604;
+  }
+  15% {
+  opacity: 0.90626;
+  }
+  20% {
+  opacity: 0.18128;
+  }
+  25% {
+  opacity: 0.83891;
+  }
+  30% {
+  opacity: 0.65583;
+  }
+  35% {
+  opacity: 0.67807;
+  }
+  40% {
+  opacity: 0.26559;
+  }
+  45% {
+  opacity: 0.84693;
+  }
+  50% {
+  opacity: 0.96019;
+  }
+  55% {
+  opacity: 0.08594;
+  }
+  60% {
+  opacity: 0.20313;
+  }
+  65% {
+  opacity: 0.71988;
+  }
+  70% {
+  opacity: 0.53455;
+  }
+  75% {
+  opacity: 0.37288;
+  }
+  80% {
+  opacity: 0.71428;
+  }
+  85% {
+  opacity: 0.70419;
+  }
+  90% {
+  opacity: 0.7003;
+  }
+  95% {
+  opacity: 0.36108;
+  }
+  100% {
+  opacity: 0.24387;
+  }
+}
+
+@keyframes boot{
+  0% {
+    content:"[ BOOT ] Loading very important files: 0%";
+  }
+  3% {
+    content:"[ BOOT ] Loading very important files: 8%";
+  }
+  5% {
+    content:"[ BOOT ] Loading very important files: 27%";
+  }
+  10% {
+    content:"[ BOOT ] Loading very important files: 43%";
+  }
+  15% {
+    content:"[ BOOT ] Loading very important files: 78%";
+  }
+  25% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:          0%";
+  }
+  50% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:          1%";
+  }
+  60% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:          7%";
+  }
+  65% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:         19%";
+  }
+  70% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:         60%";
+  }
+  100% {
+    content:"[ BOOT ] Loading very important files: DONE\a [ BOOT ] Testing your patience:        DONE";
+  }
+}
