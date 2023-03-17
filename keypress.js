@@ -1,4 +1,4 @@
-const keypressSounds = ['./sounds/key_1.mp3','./sounds/key_2.mp3','./sounds/key_3.mp3'];
+const keyPressAudio = ['./sounds/key_1.mp3','./sounds/key_2.mp3','./sounds/key_3.mp3'];
 const byteSize = str => new Blob([str]).size;
 var wd={}
 folders={
@@ -57,6 +57,10 @@ folders={
       "Anyways, this portfolio is far form finished, so please check back later!"
     ]
   }
+}
+setvars={
+  "enableVFX":"true",
+  "keyPressAudio":"true",
 }
 
 const history=[];
@@ -161,8 +165,7 @@ function evaluate(i){
       if(args[2]){
         addText("ERROR: Command 'cat' doesn't support multiple arguments.")
         break;
-      }
-      if (args[1]){
+      } else if (args[1]){
         if (folders[curDir.slice(1)] && args[1] in folders[curDir.slice(1)]){
           folders[curDir.slice(1)][args[1]].forEach(element => {
             if (element.startsWith("##")){
@@ -180,6 +183,34 @@ function evaluate(i){
         }
       }
       break;
+
+    case "set":
+      if(args[3]){
+        addText("ERROR: Command 'set' doesn't support more than two arguments.")
+        break;
+      } else if (args[2]){
+        if(setvars[args[1]]){
+          setvars[args[1]] = args[2].toLowerCase()
+          if(setvars["enableVFX"] == "true"){
+            document.getElementById("content").setAttribute("class", "content");
+          } else {
+            document.getElementById("content").setAttribute("class", "content disabled");
+          }
+        } else {
+          addText("ERROR: Unknown enviormental variable '"+args[1]+"'")
+        }
+      } else if (args[1]){
+        if (setvars[args[1]]){
+          addText(setvars[args[1]])
+        } else {
+          addText("ERROR: Unknown enviormental variable '"+args[1]+"'")
+        }
+      } else {
+        for (var key in setvars){
+          addText(key+": "+setvars[key])
+        }
+      }
+      break;
       
     default:
       addText("ERROR: Unknown command '"+args[0].toLowerCase()+"'");
@@ -189,8 +220,8 @@ function evaluate(i){
 }
 
 function onKeypress(e){
-  if(!e.repeat){
-    k=new Audio(keypressSounds[Math.floor(Math.random() * keypressSounds.length)])
+  if(!e.repeat && setvars["keyPressAudio"] == "true"){
+    k=new Audio(keyPressAudio[Math.floor(Math.random() * keyPressAudio.length)])
     k.play();
   }
   textTU=document.getElementsByClassName("t")[document.getElementsByClassName("t").length-1]

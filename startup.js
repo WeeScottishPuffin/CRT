@@ -28,7 +28,7 @@ function startSeqText() {
   bootText.style.opacity = 1;
   bootText.setAttribute("class","boot start")
   contentObj.style.display = "flex";
-  setTimeout(() => { seqEnd() }, 10000);
+  setTimeout(() => { seqEnd() }, 5000);
   
 }
 
