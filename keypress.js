@@ -4,9 +4,16 @@ var wd={}
 folders={
   "Resume":{},
   "Projects":{
-    "CRT.txt":["#test",
-               "##test"],
-    "Saturated.txt":[""]
+    "CRT.txt":["#CRT Portfolio",
+               "This is a small... interactive 'website' I made to touch up on my javscript and css skills.",
+               "I'll also use this project as a second portfolio, but it isn't really a finished, polished or user-friendly product.",
+               "It was fun making it though.",
+               "",
+               "The sourcecode is located at: 'https://github.com/AnonymousPixel/CRT'"],
+    "Saturated.txt":["#Saturated BetterDiscord theme",
+                     "This is just a small betterdiscord theme I cooked up.",
+                     "It is meant to make discord easier on the eye.",
+                     "It isn't approved by the BetterDiscord mod team, so it is only available to download via my github, at: 'https://github.com/AnonymousPixel/Saturated'"]
   },
   "About":{
     "AboutMe.txt":[
