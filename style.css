@@ -95,7 +95,7 @@ body{
 }
 
 .disabled.content:before{
-  background-size: 100% 100%;
+  background-size: 100% 1000%;
 }
 
 .content{
