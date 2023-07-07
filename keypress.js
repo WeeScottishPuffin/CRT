@@ -98,7 +98,9 @@ function addText(text,i=false,s=false){
   }
   NT.appendChild(document.createTextNode(text));
   document.getElementById("content").appendChild(NT);
-  window.scrollTo(0,window.innerHeight+16)
+  document.getElementById("overlay1").style["height"] = document.documentElement.scrollHeight + "px"
+  document.getElementById("overlay2").style["height"] = document.documentElement.scrollHeight + "px"
+  document.getElementsByClassName("t")[document.getElementsByClassName("t").length-1].scrollIntoView({block:"end"})
 }
 
 function cdEvalute(element){
@@ -242,8 +244,6 @@ function onKeypress(e){
     startupOverlayObj.style["animation-name"] = "";
     startupObj.style["animation-name"] = "";
   }
-  
-  console.log(e.keyCode)
   if(e.keyCode == 13){
     if(textTU.innerHTML.slice(4).length>0){
       evaluate(textTU.innerHTML.slice(4))
