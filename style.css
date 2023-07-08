@@ -73,7 +73,7 @@ div.flicker {
   animation: flicker 0.15s infinite;
 }
 
-.disabled.content:after{
+.disabled.content div.flicker{
   animation:0 !important;
 }
 
@@ -96,7 +96,7 @@ div.scanlines {
   pointer-events: none;
 }
 
-.disabled.content:before{
+.disabled.content div.scanlines{
   background-size: 100% 1000%;
 }
 

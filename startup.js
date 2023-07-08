@@ -53,6 +53,11 @@ function onKeypressOld(e){
 }
 
 function seqEnd() {
+  window.addEventListener("keydown", function(e) {
+      if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+          e.preventDefault();
+      }
+  }, false);
   removeElementsByClass("boot");
   var startTexts = Array.from(document.getElementsByClassName("t"));
   document.body.setAttribute("onkeydown","onKeypressOld(event)")
