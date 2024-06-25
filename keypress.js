@@ -1,3 +1,4 @@
+//Started implementing download (16/09)
 const keyPressAudio = ['./sounds/key_1.mp3','./sounds/key_2.mp3','./sounds/key_3.mp3'];
 const byteSize = str => new Blob([str]).size;
 var wd={}
@@ -9,11 +10,11 @@ folders={
                "I'll also use this project as a second portfolio, but it isn't really a finished, polished or user-friendly product.",
                "It was fun making it though.",
                "",
-               "The sourcecode is located at: 'https://github.com/AnonymousPixel/CRT'"],
+               "The sourcecode is located at: 'https://github.com/WeeScottishPuffin/CRT'"],
     "Saturated.txt":["#Saturated BetterDiscord theme",
                      "This is just a small betterdiscord theme I cooked up.",
                      "It is meant to make discord easier on the eye.",
-                     "It isn't approved by the BetterDiscord mod team, so it is only available to download via my github, at: 'https://github.com/AnonymousPixel/Saturated'"]
+                     "It isn't approved by the BetterDiscord mod team, so it is only available to download via my github, at: 'https://github.com/WeeScottishPuffin/Saturated'"]
   },
   "About":{
     "AboutMe.txt":[
@@ -27,42 +28,6 @@ folders={
       "I am also familiar with other coding languages like Java, Lua and Javascript.",
       "I do not possess any qualifications as of now, as I am currently attending the Havo (Dutch secondary education).",
       "\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0,,╓╓╦╦φφφφφφ╦╦╓╓╓,\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0,,╔φ▒╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╬▒▒╦╓\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0,╔φ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╬▒╦,\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╓φ╬╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒µ\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0,φ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒µ\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╔╣╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╦\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╔╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╠╠╬╠╠╬╠╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╦\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0;╣╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╩╙░░░░░░░░░░░░░╙╚╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╦\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0φ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╩░░░░░░░░░░░░░░░░░░░░░╚╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0,╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬µ\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0]╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬ε\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0,╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╕\xa0\xa0\xa0",
-"-\xa0\xa0\xa0║╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0\xa0\xa0",
-"-\xa0\xa0φ╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒\xa0\xa0",
-"-\xa0\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬ε\xa0",
-"-\xa0]╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒\xa0",
-"-\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0",
-"-\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0",
-"-\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0",
-"-\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░φ╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0",
-"-\xa0▐╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠▒░░░░░░░░░░░░░░░░░░░░░░░░░░░╠╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0",
-"-\xa0\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬Γ\xa0",
-"-\xa0\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▒░░░░░░░░░░░░░░░░░░░░░░░╠╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬\xa0\xa0",
-"-\xa0\xa0\xa0╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠⌐\xa0\xa0",
-"-\xa0\xa0\xa0\"╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠▒░░░░░░░░░░░░░░░░░φ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╩\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0╘╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬░░░░░░░░░░░░░░░░░╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╩\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\"╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╩░░░░░░░░░░░░░░░░░╚╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╩\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0║╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╠╬╙░░░░░░░░░░░░░░░░░░░░░╙╠╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬`\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╚╠╬╬╬╬╬╬╬╬╬╬╬╬╠╬╩╙░░░░░░░░░░░░░░░░░░░░░░░░░░░╙╚╬╠╬╬╬╬╬╬╬╬╬╬╬╬╬╬╩\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╚╠╬╬╬╬╬╬╬╩╩░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╙╚╚╠╠╬╬╬╬╬╬╬╩\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0╚╬╩╚╙░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╙╙╚╠╠╩\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Γ\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\"δ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Γ\"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0`\"░░░░░░░░░░░░░░░░░░░░░░░░░░░Γ\"\"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
-"-\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\"\"\"\"ΓδΓΓΓΓΓΓΓΓΓ\"\"\"\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
       "Anyways, this portfolio is far form finished, so please check back later!"
     ]
   }
@@ -80,11 +45,12 @@ var helpTexts=[
   "I am a software development enthousiast from the Netherlands.",
   "\xa0",
   "You can navigate my 'site' by using the following commands:",
-  "cat <file>\xa0\xa0\xa0\xa0\xa0\xa0A command to open (text) files",
-  "cd <path>\xa0\xa0\xa0\xa0\xa0\xa0\xa0Navigates to the given path",
-  "clear\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Clears the screen of all text",
-  "help\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Shows this help message",
-  "ls\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Shows the contents of the current directory",
+  "cat <file>\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0A command to open (text) files",
+  "cd <path>\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Navigates to the given path",
+  "clear\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Clears the screen of all text",
+  "help\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Shows this help message",
+  "ls\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Shows the contents of the current directory",
+  "download <project>\xa0\xa0Downloads project (if available)"
 ];
 
 function addText(text,i=false,s=false){
@@ -118,6 +84,20 @@ function evaluate(i){
   histindex = history.length;
   args=i.split(" ")
   switch (args[0].toLowerCase()){
+    case "download":
+      if(args[2]){
+        addText("ERROR: Command 'download' doesn't support multiple arguments.")
+        break;
+      }
+      if (args[1]){
+        if (downloads[args[1]]){
+          
+        }
+      }else{
+        addText("ERROR: Command 'download' needs at least one argument.")
+        break;
+      }
+      break;
     case "cd":
       if(args[2]){
         addText("ERROR: Command 'cd' doesn't support multiple arguments.")
