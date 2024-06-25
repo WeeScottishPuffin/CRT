@@ -115,7 +115,7 @@ div.scanlines {
 
 .content p{
   margin:0;
-  word-break: break-all;
+  word-break: break-word;
   z-index:1;
 }
 
