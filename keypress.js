@@ -7,10 +7,10 @@ folders={
   "Projects":{
     "CRT.txt":["#CRT Portfolio",
                "This is a small... interactive 'website' I made to touch up on my javscript and css skills.",
-               "I'll also use this project as a second portfolio, but it isn't really a finished, polished or user-friendly product.",
-               "It was fun making it though.",
+               "It's mostly a proof of concept and it isn't really a finished, polished or user-friendly product.",
+               "I had fun making it though.",
                "",
-               "The sourcecode is located at: 'https://github.com/WeeScottishPuffin/CRT'"],
+               "The sourcecode can be found at: 'https://github.com/WeeScottishPuffin/CRT'"],
     "Saturated.txt":["#Saturated BetterDiscord theme",
                      "This is just a small betterdiscord theme I cooked up.",
                      "It is meant to make discord easier on the eye.",
@@ -19,16 +19,10 @@ folders={
   "About":{
     "AboutMe.txt":[
       "##About Me",
-      "Hi, I'm Naut van der Winden, and this is my portfolio... site... kinda.",
-      "I am a software development enthousiast from the Netherlands.",
-      "I've enjoyed programming from a young age and love working on projects like these.",
+      "Hiya, I'm Naut van der Winden, a software development enthusiast from the Netherlands. But you'll probably know me as 'ScottishPuffin' or 'SirMisterMactavish'. I enjoy programming, gaming and cycling. I'm also rather interested in old (60's - 80's) music. I too like late soviet music (and early russian) from bands like 'Альянс' and 'Кино'.",
+      "I'm currently attending Secondary education (HAVO). I've been interested in programming and software development since I was young, and it is my dream to become a software developer. As of now, I am going to attend MBO (equiv. to a junior college education). I can confidently program in HTML/CSS/JS and python3. I am also going to be learning Java and broadening my knowledge of HTML/CSS/JS at the MBO that I'm going to be attending. I also hope to learn more about front-end and web design.",
       "\xa0",
-      "##Skills",
-      "I've learned to code from a young age, and am confident in my coding abilities in Python, CSS and HTML.",
-      "I am also familiar with other coding languages like Java, Lua and Javascript.",
-      "I do not possess any qualifications as of now, as I am currently attending the Havo (Dutch secondary education).",
-      "\xa0\xa0",
-      "Anyways, this portfolio is far form finished, so please check back later!"
+      "Anyways, this site is far form finished, so please check back later!"
     ]
   }
 }
